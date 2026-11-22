@@ -16,8 +16,16 @@ def run_web():
     HTTPServer(("0.0.0.0", port), HealthHandler).serve_forever()
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    await update.message.reply_text("Notebook | 95 Quiz جاهز! أرسل الأسئلة (كل سؤال في سطر).")
-
+    welcome_text = (
+        "أهلاً بك في *Notebook | 95 Quiz* 📚✨\n\n"
+        "أرسل أسئلتك كل سؤال في سطر بالصيغة التالية:\n"
+        "`السؤال | خيار1 | خيار2 | خيار3 | رقم_الإجابة`\n\n"
+        "مثال:\n"
+        "`Pharmaceutical suspensions are: | Homogeneous liquid systems | Disperse systems | Solid dosage forms | Gaseous systems | 2`\n\n"
+        "📢 القناة الرئيسية: https://t.me/Notebok95\n"
+        "👥 قناة القروب: https://t.me/notebook_95"
+    )
+    await update.message.reply_text(welcome_text, parse_mode="Markdown")
 async def handle_questions(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if not update.message or not update.message.text:
         return
