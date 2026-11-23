@@ -20,11 +20,12 @@ def run_web():
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     welcome_text = (
-        "أهلاً بك في *Notebook | 95 Quiz* 📚✨\n\n"
+        "أهلاً بك في Notebook | 95 Quiz 📚✨\n\n"
         "أرسل أسئلتك كل سؤال في سطر بالصيغة التالية:\n"
-        "`السؤال | خيار1 | خيار2 | خيار3 | رقم_الإجابة`\n\n"
+        "السؤال | خيار1 | خيار2 | خيار3 | رقم_الإجابة\n\n"
         "مثال:\n"
-        "`Pharmaceutical suspensions are: | Homogeneous liquid systems | Disperse systems | Solid dosage forms | Gaseous systems | 2`\n\n"
+        "Pharmaceutical suspensions are: | Homogeneous liquid systems | Disperse systems | Solid dosage forms | Gaseous systems | 2\n\n"
+        "💡 اضغط على /pro للحصول على البرومبت الجاهز الذي يساعدك في استخراج الأسئلة واستخدام البوت بسهولة.\n\n"
         "📢 القناة الرئيسية: https://t.me/Notebok95\n"
         "👥 قناة القروب: https://t.me/notebook_95"
     )
