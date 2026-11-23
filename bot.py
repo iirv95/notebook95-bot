@@ -29,6 +29,19 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
         "👥 قناة القروب: https://t.me/notebook_95"
     )
     await update.message.reply_text(welcome_text)
+    async def prompt_cmd(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    prompt_text = (
+        "انسخ البرومبت التالي وأرسله لأي ذكاء اصطناعي مع ملفك أو محاضرتك:\n\n"
+        "<pre>Generate multiple-choice questions (MCQs) from the text I provide.\n"
+        "Format EVERY question on a single line strictly like this:\n"
+        "Question | Option 1 | Option 2 | Option 3 | Option 4 | Correct Option Number\n\n"
+        "Rules:\n"
+        "- One question per line.\n"
+        "- Use | to separate the question, options, and the correct answer number (1, 2, 3, or 4).\n"
+        "- No numbering, no bullet points, and no extra text.\n"
+        "- Keep questions under 300 characters and options under 100 characters.</pre>"
+    )
+    await update.message.reply_text(prompt_text, parse_mode="HTML")
 async def handle_questions(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if not update.message or not update.message.text:
         return
@@ -47,6 +60,7 @@ def main():
     threading.Thread(target=run_web, daemon=True).start()
     app = Application.builder().token(TOKEN).build()
     app.add_handler(CommandHandler("start", start))
+    app.add_handler(CommandHandler(["pro", "prompt"], prompt_cmd))
     app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_questions))
     app.run_polling()
 
