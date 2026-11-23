@@ -29,7 +29,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
         "👥 قناة القروب: https://t.me/notebook_95"
     )
     await update.message.reply_text(welcome_text)
-    async def prompt_cmd(update: Update, context: ContextTypes.DEFAULT_TYPE):
+async def prompt_cmd(update: Update, context: ContextTypes.DEFAULT_TYPE):
     prompt_text = (
         "انسخ البرومبت التالي وأرسله لأي ذكاء اصطناعي مع ملفك أو محاضرتك:\n\n"
         "<pre>Generate multiple-choice questions (MCQs) from the text I provide.\n"
